@@ -1,0 +1,7 @@
+name: Box
+version: '${project.version}'
+main: me.patrickerdie.box.Box
+api-version: '1.21'
+commands:
+  boxcommand:
+    description: box
