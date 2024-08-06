@@ -10,17 +10,21 @@
 
 ## YOU CAN DOWNLOAD IT FOR FREE ON SPIGOTMC (LINK UNAVAILABLE AT THIS POINT)
 
-## DOWNLOAD WILL BE AVAILABLE AT BETA 0.2
+## BETA DOWNLOAD RIGHT HERE (https://drive.google.com/uc?export=download&id=1IFquLxeydvaASdEaZ5iXNtMRyuoPI1Mi)
 
 
 ## COMING SOON
 
-* /skyminereset EDIT 
-* /skyminereset DELETE
 * /skyminereset HELP
 * /skyminereset LIST
 
 Multiversion Support 
+
+## Version 0.2 BETA
+
+* new /skyminereset DELETE boxname
+* new /skyminereset EDIT boxname [MATERIAL, NAME, LOCATIONS, TIMER] [ADD, SET, REMOVE, TIMER, NAME] [MATERIAL] [PERCENTAGE]
+* new Better TabCompletion for commands
 
 ## Version 0.1 BETA
 
