@@ -5,9 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TabCompletion implements TabCompleter {
@@ -18,21 +16,29 @@ public class TabCompletion implements TabCompleter {
 
         switch (args.length) {
             case 1:
-                suggestions.addAll(Arrays.asList("CREATE", "WAND", "TEST"));
+                suggestions.addAll(Arrays.asList("CREATE", "WAND", "TEST", "DELETE", "EDIT", "LIST", "HELP"));
                 break;
             case 2:
-                if (args[0].equalsIgnoreCase("CREATE")) {
-                    suggestions.add("NAME");
+                if (args[0].equalsIgnoreCase("CREATE") || args[0].equalsIgnoreCase("DELETE") || args[0].equalsIgnoreCase("EDIT")) {
+                    LoadData loadData = new LoadData();
+                    Set<Mine> mines = loadData.getMines();
+                    for (Mine mine : mines) {
+                        suggestions.add(mine.getName());
+                    }
                 }
                 break;
             case 3:
                 if (args[0].equalsIgnoreCase("CREATE")) {
                     suggestions.add("INTEGER");
+                } else if (args[0].equalsIgnoreCase("EDIT")) {
+                    suggestions.addAll(Arrays.asList("MATERIALS", "NAME", "TIMER", "LOCATIONS"));
                 }
                 break;
             case 4:
                 if (args[0].equalsIgnoreCase("CREATE")) {
                     suggestions.addAll(getMaterialNames());
+                } else if (args[0].equalsIgnoreCase("EDIT") && args[2].equalsIgnoreCase("MATERIALS")) {
+                    suggestions.addAll(Arrays.asList("ADD", "REMOVE", "SET"));
                 }
                 break;
             default:
@@ -42,7 +48,6 @@ public class TabCompletion implements TabCompleter {
                 break;
         }
 
-        // Filter suggestions based on the last argument
         if (args.length > 0) {
             String lastArg = args[args.length - 1].toLowerCase();
             suggestions = suggestions.stream()

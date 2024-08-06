@@ -24,8 +24,8 @@ public final class Box extends JavaPlugin {
         saveDefaultConfig();
 
         new Reset();
-        getCommand("boxcommand").setExecutor(new Command());
-        getCommand("boxcommand").setTabCompleter(new TabCompletion());
+        getCommand("skyminereset").setExecutor(new Command());
+        getCommand("skyminereset").setTabCompleter(new TabCompletion());
         getServer().getPluginManager().registerEvents(new Wand(), this);
 
 

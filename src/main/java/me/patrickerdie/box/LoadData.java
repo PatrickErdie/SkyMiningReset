@@ -14,16 +14,10 @@ public class LoadData {
     public LoadData() {
         FileConfiguration config = Box.instance.getConfig();
         mines = new HashSet<>();
-
-        // Iterate over all box entries in the configuration
         for (String key : config.getConfigurationSection("boxes").getKeys(false)) {
             Location[] locations = new Location[2];
-
-            // Retrieve locations from configuration
             locations[0] = config.getLocation("boxes." + key + ".location1");
             locations[1] = config.getLocation("boxes." + key + ".location2");
-
-            // Validate locations
             if (locations[0] == null || locations[1] == null) {
                 Box.instance.getLogger().warning("Invalid locations for box: " + key);
                 continue;
@@ -34,7 +28,6 @@ public class LoadData {
             mine.setBounds(locations);
             mine.setResetTime(resetTimer);
 
-            // Retrieve materials and their percentages
             if (config.getConfigurationSection("boxes." + key + ".materials") != null) {
                 for (String materialKey : config.getConfigurationSection("boxes." + key + ".materials").getKeys(false)) {
                     Material material = Material.matchMaterial(materialKey);

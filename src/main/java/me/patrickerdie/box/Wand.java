@@ -20,7 +20,7 @@ public class Wand implements Listener {
     public static final ItemStack wand = createWand();
 
     private static ItemStack createWand() {
-        ItemStack wand = new ItemStack(Material.GOLDEN_AXE); // Ensure Material is appropriate
+        ItemStack wand = new ItemStack(Material.GOLDEN_AXE);
         ItemMeta meta = wand.getItemMeta();
         if (meta != null) {
             meta.setDisplayName(ChatColor.GOLD + "BoundMaker");

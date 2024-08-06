@@ -3,5 +3,5 @@ version: '1.0-SNAPSHOT'
 main: me.patrickerdie.box.Box
 api-version: '1.21'
 commands:
-  boxcommand:
+  skyminereset:
     description: box
